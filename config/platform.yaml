@@ -1,0 +1,73 @@
+# =============================================================================
+# platform.yaml
+# Enterprise Reusable Agentic Decision Intelligence Platform
+# Base Configuration — applies to ALL domains
+# =============================================================================
+# Use ${VAR_NAME} to inject environment variables.
+# Use ${VAR_NAME:default} to provide a fallback value.
+# =============================================================================
+
+platform_name: "Agentic Decision Intelligence Platform"
+version: "1.0.0"
+environment: "${PLATFORM_ENV:development}"
+
+# -----------------------------------------------------------------------------
+# Active domain — change this to switch the entire platform to a new domain
+# without touching any Python code.
+# -----------------------------------------------------------------------------
+active_domain: "${ACTIVE_DOMAIN:customer_management}"
+
+# -----------------------------------------------------------------------------
+# Large Language Model — OpenAI GPT
+# -----------------------------------------------------------------------------
+llm:
+  provider: "openai"
+  model: "${LLM_MODEL:gpt-4o}"
+  temperature: 0.2
+  max_tokens: 4096
+  api_key_env: "OPENAI_API_KEY"
+  timeout_seconds: 60
+  max_retries: 3
+
+# -----------------------------------------------------------------------------
+# Embedding Model — OpenAI Embeddings
+# -----------------------------------------------------------------------------
+embedding:
+  provider: "openai"
+  model: "${EMBEDDING_MODEL:text-embedding-3-small}"
+  api_key_env: "OPENAI_API_KEY"
+  dimensions: 1536
+
+# -----------------------------------------------------------------------------
+# Vector Database — ChromaDB
+# -----------------------------------------------------------------------------
+vector_db:
+  provider: "chromadb"
+  persist_directory: "${CHROMA_PERSIST_DIR:./data/vectordb}"
+  collection_prefix: "adip"
+  distance_metric: "cosine"
+  top_k: 5
+
+# -----------------------------------------------------------------------------
+# Relational Database — SQLite (Hackathon)
+# Replace connection_string with PostgreSQL DSN for production.
+# -----------------------------------------------------------------------------
+database:
+  provider: "sqlite"
+  connection_string: "${DB_CONNECTION:./data/platform.db}"
+  echo_sql: false
+  pool_size: 5
+
+# -----------------------------------------------------------------------------
+# Logging
+# -----------------------------------------------------------------------------
+logging:
+  level: "${LOG_LEVEL:INFO}"
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+  file_path: "${LOG_FILE:}"
+
+# -----------------------------------------------------------------------------
+# Domain configs are auto-discovered from config/domains/*.yaml
+# Do not add domain data here — keep this file infrastructure-only.
+# -----------------------------------------------------------------------------
+domains: {}

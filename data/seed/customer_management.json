@@ -1,0 +1,238 @@
+{
+  "customer_management": {
+    "Customer": [
+      {
+        "full_name": "Sarah Mitchell",
+        "email": "sarah.mitchell@acmecorp.com",
+        "phone": "+1-415-555-0101",
+        "segment": "Premium",
+        "lifetime_value": 45200.00,
+        "churn_risk_score": 0.15,
+        "sentiment_score": 0.72,
+        "last_interaction_date": "2026-06-25",
+        "notes": "Long-term customer, very satisfied with enterprise plan. Referred 3 clients."
+      },
+      {
+        "full_name": "James Thornton",
+        "email": "james.thornton@buildfast.io",
+        "phone": "+1-312-555-0182",
+        "segment": "Premium",
+        "lifetime_value": 28900.00,
+        "churn_risk_score": 0.78,
+        "sentiment_score": -0.45,
+        "last_interaction_date": "2026-06-01",
+        "notes": "Raised billing concerns in last two calls. Competitor evaluation in progress."
+      },
+      {
+        "full_name": "Priya Nair",
+        "email": "priya.nair@techvision.in",
+        "phone": "+91-98765-43210",
+        "segment": "Standard",
+        "lifetime_value": 8750.00,
+        "churn_risk_score": 0.32,
+        "sentiment_score": 0.55,
+        "last_interaction_date": "2026-06-20",
+        "notes": "Interested in upgrading to Premium. Usage growing steadily."
+      },
+      {
+        "full_name": "Carlos Rivera",
+        "email": "carlos.rivera@globalops.mx",
+        "phone": "+52-55-5555-0193",
+        "segment": "Standard",
+        "lifetime_value": 5200.00,
+        "churn_risk_score": 0.61,
+        "sentiment_score": -0.20,
+        "last_interaction_date": "2026-05-15",
+        "notes": "Support ticket backlog frustrating the team. Needs escalation review."
+      },
+      {
+        "full_name": "Amanda Chen",
+        "email": "amanda.chen@novafinance.com",
+        "phone": "+1-617-555-0144",
+        "segment": "Premium",
+        "lifetime_value": 67800.00,
+        "churn_risk_score": 0.08,
+        "sentiment_score": 0.89,
+        "last_interaction_date": "2026-06-27",
+        "notes": "Top 10 account. Champions the product internally. Ready for case study."
+      },
+      {
+        "full_name": "David Okonkwo",
+        "email": "d.okonkwo@lagostech.ng",
+        "phone": "+234-80-5555-0165",
+        "segment": "Trial",
+        "lifetime_value": 0.00,
+        "churn_risk_score": 0.55,
+        "sentiment_score": 0.10,
+        "last_interaction_date": "2026-06-10",
+        "notes": "Trial expires in 3 weeks. Has not scheduled onboarding call yet."
+      },
+      {
+        "full_name": "Rachel Summers",
+        "email": "rachel.summers@healthpeak.co",
+        "phone": "+1-303-555-0177",
+        "segment": "Standard",
+        "lifetime_value": 12400.00,
+        "churn_risk_score": 0.44,
+        "sentiment_score": 0.30,
+        "last_interaction_date": "2026-06-14",
+        "notes": "Recently switched from competitor. Learning the platform."
+      },
+      {
+        "full_name": "Michael Brennan",
+        "email": "m.brennan@atlanticlogistics.ie",
+        "phone": "+353-1-555-0188",
+        "segment": "Premium",
+        "lifetime_value": 38100.00,
+        "churn_risk_score": 0.82,
+        "sentiment_score": -0.68,
+        "last_interaction_date": "2026-05-20",
+        "notes": "Critical: Angry about SLA breach last month. Threatened legal action."
+      },
+      {
+        "full_name": "Liu Yang",
+        "email": "liu.yang@sinotech.cn",
+        "phone": "+86-10-5555-0199",
+        "segment": "Standard",
+        "lifetime_value": 9300.00,
+        "churn_risk_score": 0.28,
+        "sentiment_score": 0.48,
+        "last_interaction_date": "2026-06-22",
+        "notes": "Consistent usage. Interested in API integrations."
+      },
+      {
+        "full_name": "Fatima Al-Rashid",
+        "email": "fatima.alrashid@gulfinvest.ae",
+        "phone": "+971-50-555-0110",
+        "segment": "Trial",
+        "lifetime_value": 0.00,
+        "churn_risk_score": 0.35,
+        "sentiment_score": 0.25,
+        "last_interaction_date": "2026-06-18",
+        "notes": "High-potential enterprise prospect. Decision maker engaged."
+      }
+    ],
+    "Interaction": [
+      {
+        "customer_id": 1,
+        "channel": "phone",
+        "subject": "Quarterly business review",
+        "content": "Discussed product roadmap and expansion plans. Customer very happy with current results. Expressed interest in adding 5 more seats.",
+        "sentiment": "positive",
+        "created_at": "2026-06-25T10:30:00"
+      },
+      {
+        "customer_id": 2,
+        "channel": "email",
+        "subject": "Billing dispute - overcharge on invoice #4521",
+        "content": "Customer claims invoice #4521 has an incorrect line item of $800. They are reviewing competitor pricing and mentioned Salesforce is offering a 20% discount.",
+        "sentiment": "negative",
+        "created_at": "2026-06-01T14:15:00"
+      },
+      {
+        "customer_id": 2,
+        "channel": "phone",
+        "subject": "Follow-up on billing concern",
+        "content": "Called to resolve billing issue. Customer still frustrated. Mentioned they are 'seriously considering alternatives'. Escalated to Customer Success Director.",
+        "sentiment": "negative",
+        "created_at": "2026-05-28T09:00:00"
+      },
+      {
+        "customer_id": 3,
+        "channel": "chat",
+        "subject": "Upgrade inquiry - Premium plan features",
+        "content": "Customer asked about Premium plan benefits. Particularly interested in advanced analytics and dedicated support. Team usage has grown from 5 to 18 users.",
+        "sentiment": "positive",
+        "created_at": "2026-06-20T11:00:00"
+      },
+      {
+        "customer_id": 4,
+        "channel": "ticket",
+        "subject": "Integration error with ERP system",
+        "content": "API integration failing with their SAP instance. Error: 401 Unauthorized on webhook endpoint. Third ticket on this issue in 2 months. Team is frustrated.",
+        "sentiment": "negative",
+        "created_at": "2026-05-15T16:30:00"
+      },
+      {
+        "customer_id": 5,
+        "channel": "phone",
+        "subject": "NPS survey follow-up",
+        "content": "Customer scored 10/10 on NPS. Willing to participate in case study. Has referred two prospects already. Very strong advocate for the platform.",
+        "sentiment": "positive",
+        "created_at": "2026-06-27T09:30:00"
+      },
+      {
+        "customer_id": 6,
+        "channel": "email",
+        "subject": "Trial onboarding reminder",
+        "content": "Sent onboarding resources. No response yet. Trial account shows minimal usage - only 2 logins in 10 days. Risk of trial expiring without conversion.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-10T08:00:00"
+      },
+      {
+        "customer_id": 7,
+        "channel": "email",
+        "subject": "Welcome and onboarding check-in",
+        "content": "30-day check-in. Customer getting familiar with the platform. A few questions about data import. Positive tone overall.",
+        "sentiment": "positive",
+        "created_at": "2026-06-14T13:00:00"
+      },
+      {
+        "customer_id": 8,
+        "channel": "email",
+        "subject": "Formal complaint - SLA breach",
+        "content": "Customer submitted formal written complaint about the 4-hour outage on May 12. They experienced $50,000 in operational losses. Demanding SLA credit and compensation. CC'd their legal team.",
+        "sentiment": "negative",
+        "created_at": "2026-05-20T17:00:00"
+      },
+      {
+        "customer_id": 8,
+        "channel": "phone",
+        "subject": "Emergency escalation call",
+        "content": "Crisis call with VP of Operations. Very hostile. Demanded immediate executive call. Threatened to terminate contract and pursue damages. Requires VP-level intervention within 24 hours.",
+        "sentiment": "negative",
+        "created_at": "2026-05-18T10:00:00"
+      },
+      {
+        "customer_id": 9,
+        "channel": "chat",
+        "subject": "API documentation question",
+        "content": "Asked about webhook configuration for their internal pipeline. Resolved quickly. Customer satisfied with the response time.",
+        "sentiment": "positive",
+        "created_at": "2026-06-22T14:00:00"
+      },
+      {
+        "customer_id": 10,
+        "channel": "email",
+        "subject": "Initial discovery call follow-up",
+        "content": "Sent product brochure and ROI calculator after discovery call. Decision timeline is 4-6 weeks. Budget approved. Primary stakeholder engaged.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-18T10:00:00"
+      },
+      {
+        "customer_id": 1,
+        "channel": "email",
+        "subject": "Renewal discussion - 3-year contract",
+        "content": "Discussed multi-year renewal. Customer open to 3-year deal for additional discount. Sent proposal with 10% multi-year pricing.",
+        "sentiment": "positive",
+        "created_at": "2026-06-10T11:00:00"
+      },
+      {
+        "customer_id": 3,
+        "channel": "phone",
+        "subject": "Usage growth review",
+        "content": "Reviewed growing usage metrics. Customer team expanded. Discussed API usage limits and potential upgrade path.",
+        "sentiment": "positive",
+        "created_at": "2026-06-05T15:30:00"
+      },
+      {
+        "customer_id": 5,
+        "channel": "phone",
+        "subject": "Executive business review",
+        "content": "Conducted EBR with CTO and CFO. Presented ROI analysis showing 340% return. Both executives committed to renewal and expansion.",
+        "sentiment": "positive",
+        "created_at": "2026-06-15T14:00:00"
+      }
+    ]
+  }
+}
