@@ -1,0 +1,588 @@
+{
+  "customer_management": {
+    "Customer": [
+      {
+        "full_name": "Amanda Chen",
+        "email": "amanda.chen@novafinance.com",
+        "phone": "+1-617-555-0144",
+        "segment": "Premium",
+        "lifetime_value": 67800.00,
+        "churn_risk_score": 0.08,
+        "sentiment_score": 0.89,
+        "last_interaction_date": "2026-06-27",
+        "notes": "Top 10 account. NPS score 10/10. Champions the product internally. Referred 4 clients — 2 converted. Ready for public case study. CTO and CFO both engaged. Platform delivered 340% ROI over 18 months."
+      },
+      {
+        "full_name": "James Thornton",
+        "email": "james.thornton@buildfast.io",
+        "phone": "+1-312-555-0182",
+        "segment": "Premium",
+        "lifetime_value": 28900.00,
+        "churn_risk_score": 0.78,
+        "sentiment_score": -0.45,
+        "last_interaction_date": "2026-06-01",
+        "notes": "CRITICAL: Raised billing concerns in last 3 calls. Actively evaluating Salesforce competitor. Invoice dispute of $800 unresolved since May. Escalated to Customer Success Director. Must close resolution this week."
+      },
+      {
+        "full_name": "Michael Brennan",
+        "email": "m.brennan@atlanticlogistics.ie",
+        "phone": "+353-1-555-0188",
+        "segment": "Premium",
+        "lifetime_value": 38100.00,
+        "churn_risk_score": 0.91,
+        "sentiment_score": -0.82,
+        "last_interaction_date": "2026-05-20",
+        "notes": "CRITICAL — Legal threat. 4-hour SLA outage on May 12 caused $50,000 in operational losses. Formal written complaint filed. CC'd their legal team (Grayson & Partners). Demands executive call and SLA credit. VP-level intervention required immediately."
+      },
+      {
+        "full_name": "Sarah Mitchell",
+        "email": "sarah.mitchell@acmecorp.com",
+        "phone": "+1-415-555-0101",
+        "segment": "Premium",
+        "lifetime_value": 45200.00,
+        "churn_risk_score": 0.12,
+        "sentiment_score": 0.75,
+        "last_interaction_date": "2026-06-25",
+        "notes": "Long-term customer (3 years), very satisfied with enterprise plan. Referred 3 clients. Multi-year renewal discussion in progress — 3-year deal with 10% discount proposed. Expanding team from 12 to 20 users."
+      },
+      {
+        "full_name": "Priya Nair",
+        "email": "priya.nair@techvision.in",
+        "phone": "+91-98765-43210",
+        "segment": "Standard",
+        "lifetime_value": 8750.00,
+        "churn_risk_score": 0.29,
+        "sentiment_score": 0.58,
+        "last_interaction_date": "2026-06-20",
+        "notes": "Strong growth trajectory. Team usage grown from 5 to 18 users in 4 months. Interested in upgrading to Premium. Usage at 87% of Standard plan limits. Strong upsell candidate — send upgrade offer this week."
+      },
+      {
+        "full_name": "Carlos Rivera",
+        "email": "carlos.rivera@globalops.mx",
+        "phone": "+52-55-5555-0193",
+        "segment": "Standard",
+        "lifetime_value": 5200.00,
+        "churn_risk_score": 0.65,
+        "sentiment_score": -0.28,
+        "last_interaction_date": "2026-05-15",
+        "notes": "Support ticket backlog (3 open tickets over 14 days). SAP ERP integration has failed twice. Frustration growing. Has not responded to last 2 check-in emails. Needs immediate escalation review and direct phone call."
+      },
+      {
+        "full_name": "David Okonkwo",
+        "email": "d.okonkwo@lagostech.ng",
+        "phone": "+234-80-5555-0165",
+        "segment": "Trial",
+        "lifetime_value": 0.00,
+        "churn_risk_score": 0.62,
+        "sentiment_score": 0.08,
+        "last_interaction_date": "2026-06-10",
+        "notes": "Trial expires July 1 — 3 days left. Only 2 logins in 10 days. Has not scheduled onboarding call despite 3 reminders. High-potential Lagos fintech market. Urgent outreach required TODAY to avoid losing the account."
+      },
+      {
+        "full_name": "Fatima Al-Rashid",
+        "email": "fatima.alrashid@gulfinvest.ae",
+        "phone": "+971-50-555-0110",
+        "segment": "Trial",
+        "lifetime_value": 0.00,
+        "churn_risk_score": 0.31,
+        "sentiment_score": 0.38,
+        "last_interaction_date": "2026-06-18",
+        "notes": "High-potential enterprise prospect in UAE. Decision maker (VP Operations) directly engaged. Budget approved at AED 145,000 (~$40k USD) annually. Decision timeline 4-6 weeks. Received ROI calculator and product brochure."
+      },
+      {
+        "full_name": "Rachel Summers",
+        "email": "rachel.summers@healthpeak.co",
+        "phone": "+1-303-555-0177",
+        "segment": "Standard",
+        "lifetime_value": 12400.00,
+        "churn_risk_score": 0.41,
+        "sentiment_score": 0.33,
+        "last_interaction_date": "2026-06-14",
+        "notes": "Switched from Zoho CRM 45 days ago. Still learning the platform. Data import completed successfully. Positive but cautious — satisfaction hinges on next 30 days. Assign dedicated CSM for onboarding support."
+      },
+      {
+        "full_name": "Liu Yang",
+        "email": "liu.yang@sinotech.cn",
+        "phone": "+86-10-5555-0199",
+        "segment": "Standard",
+        "lifetime_value": 9300.00,
+        "churn_risk_score": 0.22,
+        "sentiment_score": 0.51,
+        "last_interaction_date": "2026-06-22",
+        "notes": "Consistent usage, strong API engagement. Built custom integration with internal BI tool — API call volume tripled in 30 days. Quick support resolutions have driven high satisfaction. Candidate for Premium API tier upgrade."
+      },
+      {
+        "full_name": "Oliver Hayes",
+        "email": "o.hayes@apexventures.co.uk",
+        "phone": "+44-20-7555-0201",
+        "segment": "Premium",
+        "lifetime_value": 52300.00,
+        "churn_risk_score": 0.19,
+        "sentiment_score": 0.71,
+        "last_interaction_date": "2026-06-26",
+        "notes": "Stable, healthy Premium account. Adding 8 new team members next month. Interested in custom reporting dashboard add-on (scoping doc sent). Contract auto-renews in September. Strong advocacy candidate."
+      },
+      {
+        "full_name": "Aisha Patel",
+        "email": "aisha.patel@brightwave.io",
+        "phone": "+1-646-555-0212",
+        "segment": "Premium",
+        "lifetime_value": 33600.00,
+        "churn_risk_score": 0.73,
+        "sentiment_score": -0.39,
+        "last_interaction_date": "2026-06-03",
+        "notes": "HIGH RISK. Bulk data export feature request deprioritised for 3 sprints — customer called it a 'deal-breaker'. Monday.com is offering this natively. Retention package sent (15% discount + written Q3 delivery commitment). Awaiting response."
+      },
+      {
+        "full_name": "Marco Rossi",
+        "email": "marco.rossi@italiadata.it",
+        "phone": "+39-06-5555-0223",
+        "segment": "Standard",
+        "lifetime_value": 7100.00,
+        "churn_risk_score": 0.48,
+        "sentiment_score": 0.14,
+        "last_interaction_date": "2026-06-08",
+        "notes": "Mid-cycle customer showing flat usage over 60 days. Missed last QBR — no show, no cancellation notice. Has not explored analytics features at all. Reactivation email sent. Needs a personalised training session to drive engagement."
+      },
+      {
+        "full_name": "Hana Kobayashi",
+        "email": "hana.kobayashi@nexusgroup.jp",
+        "phone": "+81-3-5555-0234",
+        "segment": "Premium",
+        "lifetime_value": 41800.00,
+        "churn_risk_score": 0.14,
+        "sentiment_score": 0.82,
+        "last_interaction_date": "2026-06-24",
+        "notes": "Highly engaged Premium account. Monthly health checks always positive. NPS: 9. VP praised platform in board meeting. Building Tableau BI integration. Renewal in August — smooth and likely expansion. Excellent advocacy candidate."
+      },
+      {
+        "full_name": "Tyler Brooks",
+        "email": "tyler.brooks@launchpad.ai",
+        "phone": "+1-512-555-0245",
+        "segment": "Trial",
+        "lifetime_value": 0.00,
+        "churn_risk_score": 0.18,
+        "sentiment_score": 0.62,
+        "last_interaction_date": "2026-06-28",
+        "notes": "High-engagement trial user. Completed onboarding on Day 2. 15 logins in 10 days. Tested 4 integrations already (Slack, Zapier, HubSpot, Stripe). Strong conversion signal — Premium plan offer sent with 20% discount, valid until July 10."
+      },
+      {
+        "full_name": "Nadia Osei",
+        "email": "nadia.osei@continentalhub.gh",
+        "phone": "+233-24-555-0256",
+        "segment": "Standard",
+        "lifetime_value": 4800.00,
+        "churn_risk_score": 0.55,
+        "sentiment_score": -0.12,
+        "last_interaction_date": "2026-06-05",
+        "notes": "URGENT: Payment failed twice (card expired May 31). Account is in restricted read-only mode. 2 automated emails sent — no response. Account will be fully suspended on July 5. Phone outreach and WhatsApp attempted — voicemail left. Needs same-day resolution."
+      },
+      {
+        "full_name": "Ethan Park",
+        "email": "ethan.park@koreanpay.kr",
+        "phone": "+82-2-5555-0267",
+        "segment": "Standard",
+        "lifetime_value": 6500.00,
+        "churn_risk_score": 0.33,
+        "sentiment_score": 0.45,
+        "last_interaction_date": "2026-06-17",
+        "notes": "Good engagement, uses core features well. GDPR compliance documentation delivered promptly — positive feedback. Procurement team reviewing for expanded rollout across 3 departments. Potential 4x expansion — flag as strategic growth account."
+      },
+      {
+        "full_name": "Sophie Leclair",
+        "email": "sophie.leclair@luminahealth.fr",
+        "phone": "+33-1-5555-0278",
+        "segment": "Premium",
+        "lifetime_value": 29700.00,
+        "churn_risk_score": 0.56,
+        "sentiment_score": -0.22,
+        "last_interaction_date": "2026-06-12",
+        "notes": "Mixed signals. Positive about analytics but frustrated with support SLA breaches (avg 5-day resolution vs 48-hr SLA). At risk of downgrading at renewal in 60 days. Service recovery plan activated: priority queue + 1-month credit ($2,475). 'Wait and see' attitude."
+      },
+      {
+        "full_name": "Raj Mehta",
+        "email": "raj.mehta@infracloud.in",
+        "phone": "+91-80-5555-0289",
+        "segment": "Standard",
+        "lifetime_value": 11200.00,
+        "churn_risk_score": 0.26,
+        "sentiment_score": 0.66,
+        "last_interaction_date": "2026-06-23",
+        "notes": "Highly engaged technical buyer. 6 feature requests submitted — 3 already shipped. Joined Analytics Beta Program. Building business case for Premium upgrade (decision expected Q3). Strong candidate for reference program and premium upsell."
+      },
+      {
+        "full_name": "Elena Vasquez",
+        "email": "elena.vasquez@suramerica.co",
+        "phone": "+57-1-5555-0290",
+        "segment": "Standard",
+        "lifetime_value": 3200.00,
+        "churn_risk_score": 0.71,
+        "sentiment_score": -0.58,
+        "last_interaction_date": "2026-05-28",
+        "notes": "HIGH RISK — Cancellation request submitted May 28, currently in 30-day retention hold. Root cause: mishandled onboarding by sales team, promises not delivered. Recovery plan activated: dedicated CSM, free implementation consulting, 50% 3-month discount. Week 2 milestone completed — cautiously encouraging."
+      }
+    ],
+    "Interaction": [
+      {
+        "customer_id": 1,
+        "channel": "phone",
+        "subject": "NPS survey follow-up — score 10/10, case study agreed",
+        "content": "Customer scored 10/10 on NPS. Willing to participate in a public case study — draft sent and approved with minor edits. Has referred four prospects: two converted (one Standard, one Premium). Very strong platform advocate. Offered logo use on website.",
+        "sentiment": "positive",
+        "created_at": "2026-06-27T09:30:00"
+      },
+      {
+        "customer_id": 1,
+        "channel": "phone",
+        "subject": "Executive Business Review — 340% ROI presented to CTO and CFO",
+        "content": "Full EBR with CTO and CFO. Presented ROI analysis showing 340% return on investment over 18 months. Both executives committed to renewal and expansion. Discussed adding 5 seats and unlocking advanced analytics tier. Energy was extremely positive.",
+        "sentiment": "positive",
+        "created_at": "2026-06-15T14:00:00"
+      },
+      {
+        "customer_id": 1,
+        "channel": "email",
+        "subject": "Renewal discussion — 3-year expansion deal",
+        "content": "Discussed multi-year renewal. Amanda open to a 3-year deal for additional 10% discount. Sent proposal with multi-year pricing. Also added 5-seat expansion to the proposal. Procurement review expected within 2 weeks.",
+        "sentiment": "positive",
+        "created_at": "2026-06-10T11:00:00"
+      },
+      {
+        "customer_id": 2,
+        "channel": "email",
+        "subject": "Billing dispute — overcharge on invoice #4521",
+        "content": "Customer claims invoice #4521 has an incorrect line item of $800. They are reviewing competitor pricing and mentioned Salesforce is offering a 20% discount. Requested a credit memo within 3 business days. Urgency is high.",
+        "sentiment": "negative",
+        "created_at": "2026-06-01T14:15:00"
+      },
+      {
+        "customer_id": 2,
+        "channel": "phone",
+        "subject": "Follow-up call — still unresolved, escalation threatened",
+        "content": "Called to resolve billing issue. Customer still frustrated. Mentioned they are seriously considering alternatives and have demos scheduled with HubSpot next week. Escalated to Customer Success Director. 15% discount offer pending approval.",
+        "sentiment": "negative",
+        "created_at": "2026-05-28T09:00:00"
+      },
+      {
+        "customer_id": 2,
+        "channel": "email",
+        "subject": "Competitor evaluation confirmed — HubSpot and Salesforce shortlisted",
+        "content": "Email from James stating they have shortlisted HubSpot and Salesforce. Decision expected within 2 weeks. Explicitly mentioned the unresolved billing dispute as the primary driver. We have a very narrow window to recover this account.",
+        "sentiment": "negative",
+        "created_at": "2026-05-20T10:30:00"
+      },
+      {
+        "customer_id": 3,
+        "channel": "email",
+        "subject": "Formal complaint — SLA breach, legal team CC'd",
+        "content": "Customer submitted formal written complaint about the 4-hour outage on May 12. Atlantic Logistics experienced $50,000 in operational losses. Demanding SLA credit (one month free) and a written compensation plan. CC'd solicitors Grayson & Partners.",
+        "sentiment": "negative",
+        "created_at": "2026-05-20T17:00:00"
+      },
+      {
+        "customer_id": 3,
+        "channel": "phone",
+        "subject": "Emergency crisis call — VP of Operations, litigation threat",
+        "content": "45-minute crisis call with VP of Operations. Extremely hostile. Demanded executive-level response within 24 hours. Threatened to terminate the $38k annual contract and pursue damages in court. Requires immediate VP notification and legal review. This is critical.",
+        "sentiment": "negative",
+        "created_at": "2026-05-18T10:00:00"
+      },
+      {
+        "customer_id": 3,
+        "channel": "email",
+        "subject": "Compliance team notified — SLA credit of $3,100 pre-approved",
+        "content": "Compliance team notified per escalation policy. Legal counsel reviewing SLA terms and liability exposure. VP of Customer Success scheduled a call for May 22. SLA credit of $3,100 (one full month) pre-approved pending customer agreement. Highly urgent.",
+        "sentiment": "negative",
+        "created_at": "2026-05-16T09:00:00"
+      },
+      {
+        "customer_id": 4,
+        "channel": "phone",
+        "subject": "Quarterly Business Review — expansion to 20 seats discussed",
+        "content": "QBR went very well. Reviewed product roadmap and Sarah expressed interest in adding 8 more seats for the new operations team. Also discussed possibility of a 3-year renewal with volume discount. Submitted multi-year proposal after the call.",
+        "sentiment": "positive",
+        "created_at": "2026-06-25T10:30:00"
+      },
+      {
+        "customer_id": 4,
+        "channel": "email",
+        "subject": "Renewal proposal — 3-year contract at 10% discount sent",
+        "content": "Sent renewal proposal: 3-year pricing at 10% discount ($40,680 vs $45,200 annual). Sarah has forwarded to procurement for review. Expects sign-off within 2 weeks. Included new user license add-on pricing for the additional 8 seats.",
+        "sentiment": "positive",
+        "created_at": "2026-06-10T11:00:00"
+      },
+      {
+        "customer_id": 5,
+        "channel": "chat",
+        "subject": "Upgrade inquiry — Premium plan features and pricing",
+        "content": "Priya asked about Premium plan benefits. Particularly interested in advanced analytics, dedicated CSM support, and unlimited API calls. Current team usage has grown from 5 to 18 users and they are hitting plan limits regularly. Very open to upgrading.",
+        "sentiment": "positive",
+        "created_at": "2026-06-20T11:00:00"
+      },
+      {
+        "customer_id": 5,
+        "channel": "phone",
+        "subject": "Usage review — 87% of plan limit reached, upgrade urgently recommended",
+        "content": "Reviewed platform usage with Priya. Currently at 87% of API call limit and 100% of user seat capacity. Three more team members need access but cannot be added. Strongly advised Premium upgrade. Shared ROI projection showing 2.3x return for their use case.",
+        "sentiment": "positive",
+        "created_at": "2026-06-05T15:30:00"
+      },
+      {
+        "customer_id": 6,
+        "channel": "ticket",
+        "subject": "SAP ERP integration failure — 401 Unauthorized, third ticket",
+        "content": "Third support ticket on the same SAP integration failure. Error: 401 Unauthorized on webhook endpoint. Root cause is an API token rotation policy mismatch. Engineering fix is ready but blocked by change management queue. Customer team is extremely frustrated after 3 failed attempts over 2 months.",
+        "sentiment": "negative",
+        "created_at": "2026-05-15T16:30:00"
+      },
+      {
+        "customer_id": 6,
+        "channel": "email",
+        "subject": "Silent disengagement — no response to last 2 emails",
+        "content": "Sent two follow-up emails in the last 3 weeks. Zero response. Account activity has dropped 60% from baseline. If no contact is made this week, this account is very likely churning silently. Recommend immediate direct phone outreach today.",
+        "sentiment": "negative",
+        "created_at": "2026-06-09T08:00:00"
+      },
+      {
+        "customer_id": 7,
+        "channel": "email",
+        "subject": "Onboarding reminder #3 — trial expires in 3 days, no response",
+        "content": "Third and final onboarding reminder sent. Trial account shows minimal usage: only 2 logins in 10 days. Trial expires July 1. High-potential Lagos fintech market. Recommend immediate phone call as last resort before trial expiry — this is an urgent action.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-10T08:00:00"
+      },
+      {
+        "customer_id": 7,
+        "channel": "email",
+        "subject": "Welcome email and onboarding resources sent",
+        "content": "Welcome email sent with onboarding guide, video walkthrough link, and support contact details. Included a Lagos fintech success story as relevant social proof. Scheduled automated Day-3 and Day-7 check-in emails via campaign system.",
+        "sentiment": "neutral",
+        "created_at": "2026-05-31T10:00:00"
+      },
+      {
+        "customer_id": 8,
+        "channel": "email",
+        "subject": "Discovery call follow-up — ROI calculator and brochure sent",
+        "content": "Sent product brochure and customised ROI calculator. Fatima confirmed budget of AED 145,000 (~$40k USD) is approved annually. Decision timeline is 4-6 weeks. Primary stakeholder is VP of Operations who is directly engaged and enthusiastic.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-18T10:00:00"
+      },
+      {
+        "customer_id": 8,
+        "channel": "phone",
+        "subject": "Initial discovery call — excellent fit, strong buying signals",
+        "content": "45-minute discovery call with Fatima (VP Ops, Gulf Invest). Excellent product-market fit. They currently use spreadsheets for customer tracking and are experiencing clear pain points around reporting and escalation workflows. Very engaged throughout. High win probability.",
+        "sentiment": "positive",
+        "created_at": "2026-06-11T14:00:00"
+      },
+      {
+        "customer_id": 9,
+        "channel": "email",
+        "subject": "30-day welcome check-in — positive transition from Zoho",
+        "content": "30-day check-in with Rachel. Transition from Zoho has been smoother than expected after the live data import session. A few remaining questions about advanced filtering. Positive tone overall — she is happy with the UI and grateful for the CSM support.",
+        "sentiment": "positive",
+        "created_at": "2026-06-14T13:00:00"
+      },
+      {
+        "customer_id": 9,
+        "channel": "chat",
+        "subject": "Live data import session — 1,200 Zoho records migrated",
+        "content": "Conducted 45-minute live screen-share session to help Rachel import historical Zoho CRM data. Successfully migrated 1,200 customer records with no data loss. Rachel was very grateful and said her team confidence in the platform has significantly improved.",
+        "sentiment": "positive",
+        "created_at": "2026-06-08T11:00:00"
+      },
+      {
+        "customer_id": 10,
+        "channel": "chat",
+        "subject": "API webhook configuration — resolved in 12 minutes",
+        "content": "Liu Yang asked about webhook configuration for their internal data pipeline. Issue was a missing authentication header in their custom integration. Resolved in 12 minutes. Customer satisfied with the fast response time and technical accuracy.",
+        "sentiment": "positive",
+        "created_at": "2026-06-22T14:00:00"
+      },
+      {
+        "customer_id": 10,
+        "channel": "email",
+        "subject": "Custom BI integration live — API volume tripled",
+        "content": "Liu reported their internal pipeline integration is now fully live. API call volume has tripled in the last 30 days. Shared information about Premium plan unlimited API tier proactively. Planting the upgrade seed early for a smooth Q3 conversation.",
+        "sentiment": "positive",
+        "created_at": "2026-06-15T09:00:00"
+      },
+      {
+        "customer_id": 11,
+        "channel": "phone",
+        "subject": "Monthly health check — team expansion, custom dashboard interest",
+        "content": "Monthly health check with Oliver Hayes. Team is very happy with the platform. Eight new hires joining next month who will all need licences. Oliver is keen on a custom reporting dashboard add-on. Flagged as a strong upsell opportunity for Q3.",
+        "sentiment": "positive",
+        "created_at": "2026-06-26T10:00:00"
+      },
+      {
+        "customer_id": 11,
+        "channel": "email",
+        "subject": "Custom dashboard scoping document — £12k setup, £2.4k/year",
+        "content": "Sent scoping document for custom reporting dashboard add-on. Initial estimate: £12,000 one-time setup + £2,400 per year maintenance. Oliver flagged for budget review in Q3. Response was positive — high likelihood of conversion before September renewal.",
+        "sentiment": "positive",
+        "created_at": "2026-06-20T14:30:00"
+      },
+      {
+        "customer_id": 12,
+        "channel": "phone",
+        "subject": "Feature escalation — bulk export deprioritised again, deal-breaker flagged",
+        "content": "Aisha called frustrated that the bulk data export feature has been postponed for the third consecutive sprint. She stated this is a deal-breaker for her CFO. Monday.com offers this feature natively. She requested a written delivery commitment date. Must escalate to product team today.",
+        "sentiment": "negative",
+        "created_at": "2026-06-03T10:00:00"
+      },
+      {
+        "customer_id": 12,
+        "channel": "email",
+        "subject": "Retention package sent — 15% discount + Q3 feature commitment",
+        "content": "Sent retention package: 15% discount on renewal ($28,560 vs $33,600) plus a written product commitment that bulk export will ship in Q3 2026. Waiting for Aisha's response. If this is not accepted, account is at high risk of churning at August renewal.",
+        "sentiment": "negative",
+        "created_at": "2026-06-05T09:00:00"
+      },
+      {
+        "customer_id": 12,
+        "channel": "email",
+        "subject": "Previous QBR — product roadmap discussion, feature gap identified",
+        "content": "QBR revealed that bulk export is the number one feature request from Aisha's operations team. Three other similar requests came up — all roadmap items. Customer was patient but expectations were set too optimistically by the sales team during the initial deal.",
+        "sentiment": "negative",
+        "created_at": "2026-05-15T16:00:00"
+      },
+      {
+        "customer_id": 13,
+        "channel": "email",
+        "subject": "QBR no-show — rescheduling email sent",
+        "content": "Marco Rossi did not attend the scheduled Quarterly Business Review. No cancellation notice was received. Sent a follow-up email to reschedule. Usage data shows zero growth in analytics feature adoption over the past 60 days. Reactivation campaign initiated.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-08T11:00:00"
+      },
+      {
+        "customer_id": 13,
+        "channel": "email",
+        "subject": "Reactivation email — 3 underused features highlighted, free training offered",
+        "content": "Sent personalised reactivation email highlighting 3 underused features: automated reports, customer health scores, and bulk email campaigns. Included tutorial video links and an offer for a complimentary 1-hour training session. No response received yet.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-15T10:00:00"
+      },
+      {
+        "customer_id": 14,
+        "channel": "phone",
+        "subject": "Monthly health check — VP praised platform in board meeting",
+        "content": "Excellent monthly health check call with Hana. Her VP cited the platform positively in a recent board meeting. Team is highly engaged and excited about the upcoming BI integration. NPS expected to remain at 9. August renewal looks very smooth.",
+        "sentiment": "positive",
+        "created_at": "2026-06-24T10:00:00"
+      },
+      {
+        "customer_id": 14,
+        "channel": "email",
+        "subject": "Tableau BI integration scoping — solution engineering involved",
+        "content": "Hana shared their internal BI architecture. Discussed how the API can feed real-time customer data into Tableau dashboards. Sent the technical integration guide and connected her with our Solution Engineering team for a dedicated scoping call next week.",
+        "sentiment": "positive",
+        "created_at": "2026-06-18T14:00:00"
+      },
+      {
+        "customer_id": 15,
+        "channel": "phone",
+        "subject": "Day 2 onboarding call — impressive technical depth",
+        "content": "Tyler joined the onboarding call on Day 2 of his trial. Already tested the API and configured two integrations (Slack and Zapier). Very technical buyer. Asked sharp questions about multi-tenancy architecture and scalability limits. Very high conversion likelihood.",
+        "sentiment": "positive",
+        "created_at": "2026-06-20T14:00:00"
+      },
+      {
+        "customer_id": 15,
+        "channel": "email",
+        "subject": "Premium offer sent — 20% first-year discount, valid until July 10",
+        "content": "Sent Premium plan offer with 20% first-year discount valid until the trial end date (July 10). Tyler's usage signals are all green: 15 logins, 4 integrations (Slack, Zapier, HubSpot, Stripe), 3 support tickets all resolved positively. Expecting conversion.",
+        "sentiment": "positive",
+        "created_at": "2026-06-28T10:00:00"
+      },
+      {
+        "customer_id": 16,
+        "channel": "email",
+        "subject": "Payment failure — card expired, account in restricted mode",
+        "content": "Billing system flagged two consecutive payment failures for Nadia Osei. Card expired May 31. Account is now in restricted read-only mode. Two automated billing emails sent with no response. Account will be fully suspended on July 5 if payment is not updated.",
+        "sentiment": "negative",
+        "created_at": "2026-06-15T09:00:00"
+      },
+      {
+        "customer_id": 16,
+        "channel": "phone",
+        "subject": "Urgent phone outreach — suspension imminent in 6 days",
+        "content": "Called Nadia directly about the billing issue — went to voicemail. Left urgent message explaining that account suspension is 6 days away. Also sent a WhatsApp message to her business number. Account has $4,800 LTV and is worth saving. Needs same-day resolution if possible.",
+        "sentiment": "negative",
+        "created_at": "2026-06-25T11:00:00"
+      },
+      {
+        "customer_id": 17,
+        "channel": "ticket",
+        "subject": "GDPR compliance documentation delivered — fast turnaround",
+        "content": "Ethan opened a support ticket requesting our GDPR Data Processing Agreement (DPA) and SOC 2 Type II security audit report. This is a pre-procurement requirement. Full compliance documentation package delivered within 4 hours. Customer left a 5-star satisfaction rating.",
+        "sentiment": "positive",
+        "created_at": "2026-06-17T14:00:00"
+      },
+      {
+        "customer_id": 17,
+        "channel": "email",
+        "subject": "Procurement review in progress — potential 4x expansion flagged",
+        "content": "Ethan confirmed their procurement team is reviewing the compliance documentation for an expanded rollout across 3 additional departments. If approved, this could represent a 4x revenue expansion from current levels ($6,500 to ~$26,000 annually). Flagged as strategic growth account.",
+        "sentiment": "positive",
+        "created_at": "2026-06-19T10:00:00"
+      },
+      {
+        "customer_id": 18,
+        "channel": "phone",
+        "subject": "Mid-cycle check-in — SLA breach frustration, downgrade risk",
+        "content": "Sophie raised concern about support ticket response times. Last 3 tickets averaged 5 days to resolution versus the contracted 48-hour Premium SLA. She is seriously considering downgrading to Standard at renewal (in 60 days) to reduce costs. Must improve SLA adherence urgently.",
+        "sentiment": "negative",
+        "created_at": "2026-06-12T14:00:00"
+      },
+      {
+        "customer_id": 18,
+        "channel": "email",
+        "subject": "Service recovery initiated — priority queue + $2,475 SLA credit",
+        "content": "Escalated Sophie's account to the priority support queue. Sent formal written apology and issued 1-month SLA credit of $2,475. Committed to guaranteed 24-hour response for the next 90 days. Sophie acknowledged but will wait and see before committing to renewal. Close monitoring required.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-14T09:00:00"
+      },
+      {
+        "customer_id": 19,
+        "channel": "phone",
+        "subject": "Product roadmap call — 3 feature requests shipped, high engagement",
+        "content": "Raj is extremely engaged with the product roadmap. Three of his 6 feature requests have now shipped and he is thrilled. He wants to join the beta program for the new analytics module. Highly vocal advocate — recommend for reference program and community forum leadership.",
+        "sentiment": "positive",
+        "created_at": "2026-06-23T11:00:00"
+      },
+      {
+        "customer_id": 19,
+        "channel": "email",
+        "subject": "Beta program invitation accepted — Premium upgrade path discussed",
+        "content": "Sent Raj an invitation to the Analytics Beta Program. He accepted within 2 hours and is already active in the beta Slack channel. Also discussed Premium upgrade path — he is building a business case for his CFO. Estimated upgrade decision within Q3 2026.",
+        "sentiment": "positive",
+        "created_at": "2026-06-25T14:00:00"
+      },
+      {
+        "customer_id": 20,
+        "channel": "email",
+        "subject": "Cancellation request received — 30-day retention hold applied",
+        "content": "Elena Vasquez submitted a cancellation request via email on May 28. Per policy, a 30-day retention hold has been applied. Primary complaint: onboarding expectations were not set correctly by the sales team and promised outcomes were not delivered. This is an internal failure we must own.",
+        "sentiment": "negative",
+        "created_at": "2026-05-28T15:00:00"
+      },
+      {
+        "customer_id": 20,
+        "channel": "phone",
+        "subject": "Retention call — 60-day recovery plan agreed",
+        "content": "Called Elena to understand her concerns. Fully acknowledged the failed onboarding experience. Presented a personalised 60-day recovery plan: dedicated CSM assigned, 2 free implementation consulting sessions, and 50% discount for 3 months. Elena agreed to pause the cancellation and give us one final chance.",
+        "sentiment": "neutral",
+        "created_at": "2026-06-05T10:00:00"
+      },
+      {
+        "customer_id": 20,
+        "channel": "email",
+        "subject": "Recovery plan week 2 — first milestone achieved",
+        "content": "Elena completed her first recovery milestone: successfully imported historical data and set up her first automated workflow with CSM guidance. CSM sent a congratulatory email and scheduled the Week 4 checkpoint. Early signs are encouraging — momentum must be maintained.",
+        "sentiment": "positive",
+        "created_at": "2026-06-12T14:00:00"
+      }
+    ]
+  }
+}

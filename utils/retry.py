@@ -64,6 +64,23 @@ def retry_on_transient_error(
                     return func(*args, **kwargs)
                 except exceptions as exc:
                     last_exception = exc
+                    
+                    # Detect non-transient errors to fail fast instead of wasting time retrying
+                    exc_str = str(exc).lower()
+                    non_transient_keywords = [
+                        "insufficient_quota",
+                        "invalid_api_key",
+                        "authentication_error",
+                        "credit_limit",
+                        "quota_exceeded"
+                    ]
+                    if any(kw in exc_str for kw in non_transient_keywords):
+                        logger.error(
+                            "Non-transient error '%s' detected in '%s'. Failing immediately.",
+                            exc, func.__name__
+                        )
+                        raise
+
                     if attempt == max_attempts:
                         logger.error(
                             "Function '%s' failed after %d attempt(s). "

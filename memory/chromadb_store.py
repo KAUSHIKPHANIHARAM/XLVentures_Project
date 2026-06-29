@@ -238,15 +238,33 @@ class ChromaDBMemoryStore(AbstractMemoryStore):
         collection_name = self._collection_name(domain, memory_type)
 
         if collection_name not in self._collection_cache:
-            # Always pass embedding_function=None — we embed externally before
-            # every add/query call, so ChromaDB never needs its own embedder.
-            # This prevents the 'new: openai vs persisted: default' conflict
-            # that occurs when the same collection is reused across restarts.
-            collection = self._client.get_or_create_collection(
-                name=collection_name,
-                embedding_function=None,
-                metadata={"hnsw:space": self._config.distance_metric},
-            )
+            try:
+                # Use the configured embedding function (e.g., OpenAI) to avoid fallback downloads.
+                collection = self._client.get_or_create_collection(
+                    name=collection_name,
+                    embedding_function=self._embedding_fn,
+                    metadata={"hnsw:space": self._config.distance_metric},
+                )
+            except ValueError as exc:
+                # If there's an embedding function conflict (e.g. key changed from default to openai),
+                # recreate the collection automatically.
+                if "embedding function" in str(exc).lower() or "conflict" in str(exc).lower():
+                    logger.warning(
+                        "Embedding function conflict in collection '%s'. Resetting collection...",
+                        collection_name,
+                    )
+                    try:
+                        self._client.delete_collection(collection_name)
+                    except Exception:
+                        pass
+                    collection = self._client.get_or_create_collection(
+                        name=collection_name,
+                        embedding_function=self._embedding_fn,
+                        metadata={"hnsw:space": self._config.distance_metric},
+                    )
+                else:
+                    raise
+
             self._collection_cache[collection_name] = collection
             logger.debug("Collection '%s' ready.", collection_name)
 

@@ -78,7 +78,7 @@ class AgentInput(BaseModel, frozen=True):
         default_factory=list,
         description="Structured data retrieved from tools or connectors.",
     )
-    knowledge_chunks: list[str] = Field(
+    knowledge_chunks: list[dict[str, Any]] = Field(
         default_factory=list,
         description="Relevant knowledge base excerpts retrieved via semantic search.",
     )
@@ -181,7 +181,7 @@ class WorkflowState(TypedDict, total=False):
 
     # Data layer
     retrieved_data: list[dict[str, Any]]
-    knowledge_chunks: list[str]
+    knowledge_chunks: list[dict[str, Any]]
     memory_entries: list[dict[str, Any]]
 
     # Agent outputs (keyed by agent name)

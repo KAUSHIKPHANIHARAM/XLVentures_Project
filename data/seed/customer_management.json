@@ -2,10 +2,14 @@
   "customer_management": {
     "Customer": [
       {
+        "customer_id": "CUST-001",
+        "company_name": "Acme Corporation",
+        "registered_email": "accounts@acmecorp.com",
         "full_name": "Sarah Mitchell",
         "email": "sarah.mitchell@acmecorp.com",
         "phone": "+1-415-555-0101",
         "segment": "Premium",
+        "contract_end_date": "2026-12-15",
         "lifetime_value": 45200.00,
         "churn_risk_score": 0.15,
         "sentiment_score": 0.72,
@@ -13,10 +17,14 @@
         "notes": "Long-term customer, very satisfied with enterprise plan. Referred 3 clients."
       },
       {
+        "customer_id": "CUST-002",
+        "company_name": "BuildFast.io",
+        "registered_email": "billing@buildfast.io",
         "full_name": "James Thornton",
         "email": "james.thornton@buildfast.io",
         "phone": "+1-312-555-0182",
         "segment": "Premium",
+        "contract_end_date": "2026-10-30",
         "lifetime_value": 28900.00,
         "churn_risk_score": 0.78,
         "sentiment_score": -0.45,
@@ -24,10 +32,14 @@
         "notes": "Raised billing concerns in last two calls. Competitor evaluation in progress."
       },
       {
+        "customer_id": "CUST-003",
+        "company_name": "TechVision Solutions",
+        "registered_email": "contact@techvision.in",
         "full_name": "Priya Nair",
         "email": "priya.nair@techvision.in",
         "phone": "+91-98765-43210",
         "segment": "Standard",
+        "contract_end_date": "2027-03-01",
         "lifetime_value": 8750.00,
         "churn_risk_score": 0.32,
         "sentiment_score": 0.55,
@@ -35,10 +47,14 @@
         "notes": "Interested in upgrading to Premium. Usage growing steadily."
       },
       {
+        "customer_id": "CUST-004",
+        "company_name": "GlobalOps MX",
+        "registered_email": "support@globalops.mx",
         "full_name": "Carlos Rivera",
         "email": "carlos.rivera@globalops.mx",
         "phone": "+52-55-5555-0193",
         "segment": "Standard",
+        "contract_end_date": "2026-11-10",
         "lifetime_value": 5200.00,
         "churn_risk_score": 0.61,
         "sentiment_score": -0.20,
@@ -46,10 +62,14 @@
         "notes": "Support ticket backlog frustrating the team. Needs escalation review."
       },
       {
+        "customer_id": "CUST-005",
+        "company_name": "Nova Finance",
+        "registered_email": "execops@novafinance.com",
         "full_name": "Amanda Chen",
         "email": "amanda.chen@novafinance.com",
         "phone": "+1-617-555-0144",
         "segment": "Premium",
+        "contract_end_date": "2027-01-22",
         "lifetime_value": 67800.00,
         "churn_risk_score": 0.08,
         "sentiment_score": 0.89,
@@ -57,10 +77,14 @@
         "notes": "Top 10 account. Champions the product internally. Ready for case study."
       },
       {
+        "customer_id": "CUST-006",
+        "company_name": "LagosTech",
+        "registered_email": "trial@lagostech.ng",
         "full_name": "David Okonkwo",
         "email": "d.okonkwo@lagostech.ng",
         "phone": "+234-80-5555-0165",
         "segment": "Trial",
+        "contract_end_date": "2026-07-25",
         "lifetime_value": 0.00,
         "churn_risk_score": 0.55,
         "sentiment_score": 0.10,
@@ -68,10 +92,14 @@
         "notes": "Trial expires in 3 weeks. Has not scheduled onboarding call yet."
       },
       {
+        "customer_id": "CUST-007",
+        "company_name": "HealthPeak Co",
+        "registered_email": "contact@healthpeak.co",
         "full_name": "Rachel Summers",
         "email": "rachel.summers@healthpeak.co",
         "phone": "+1-303-555-0177",
         "segment": "Standard",
+        "contract_end_date": "2026-12-05",
         "lifetime_value": 12400.00,
         "churn_risk_score": 0.44,
         "sentiment_score": 0.30,
@@ -79,10 +107,14 @@
         "notes": "Recently switched from competitor. Learning the platform."
       },
       {
+        "customer_id": "CUST-008",
+        "company_name": "Atlantic Logistics",
+        "registered_email": "sla@atlanticlogistics.ie",
         "full_name": "Michael Brennan",
         "email": "m.brennan@atlanticlogistics.ie",
         "phone": "+353-1-555-0188",
         "segment": "Premium",
+        "contract_end_date": "2026-09-30",
         "lifetime_value": 38100.00,
         "churn_risk_score": 0.82,
         "sentiment_score": -0.68,
@@ -90,10 +122,14 @@
         "notes": "Critical: Angry about SLA breach last month. Threatened legal action."
       },
       {
+        "customer_id": "CUST-009",
+        "company_name": "SinoTech Global",
+        "registered_email": "support@sinotech.cn",
         "full_name": "Liu Yang",
         "email": "liu.yang@sinotech.cn",
         "phone": "+86-10-5555-0199",
         "segment": "Standard",
+        "contract_end_date": "2027-02-14",
         "lifetime_value": 9300.00,
         "churn_risk_score": 0.28,
         "sentiment_score": 0.48,
@@ -101,10 +137,14 @@
         "notes": "Consistent usage. Interested in API integrations."
       },
       {
+        "customer_id": "CUST-010",
+        "company_name": "GulfInvest",
+        "registered_email": "enterprise@gulfinvest.ae",
         "full_name": "Fatima Al-Rashid",
         "email": "fatima.alrashid@gulfinvest.ae",
         "phone": "+971-50-555-0110",
         "segment": "Trial",
+        "contract_end_date": "2026-08-15",
         "lifetime_value": 0.00,
         "churn_risk_score": 0.35,
         "sentiment_score": 0.25,

@@ -68,12 +68,19 @@ def register_domain_tools(domain_config: DomainConfig) -> dict[str, Any]:
                 registered[tool_config.name] = _tool_cache[key]
                 continue
 
-            # Build the LangChain tool
+            # Build the LangChain tool — infer schema from function signature
+            # so the LLM sees real parameter names/types (not just YAML description).
             impl_fn = _resolve_implementation(tool_config)
+            tool_description = (
+                impl_fn.__doc__.strip()
+                if impl_fn.__doc__
+                else tool_config.description.strip()
+            )
             lc_tool = StructuredTool.from_function(
                 func=impl_fn,
                 name=tool_config.name,
-                description=tool_config.description.strip(),
+                description=tool_description,
+                infer_schema=True,
             )
             _tool_cache[key] = lc_tool
             registered[tool_config.name] = lc_tool

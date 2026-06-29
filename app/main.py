@@ -11,8 +11,11 @@ Usage:
 
 This module:
     1. Ensures the project root is on sys.path.
-    2. Delegates entirely to frontend/app.py (the Streamlit application).
-    3. Acts as a clean, stable entry point — never hardcodes business logic.
+    2. Loads the .env file for local development.
+    3. The actual Streamlit UI code lives in frontend/app.py and is run
+       by Streamlit directly through sys.argv redirection — NOT via import.
+       Importing frontend/app.py as a module would cause it to execute
+       its top-level Streamlit calls twice, breaking the page.
 """
 
 from __future__ import annotations
@@ -21,19 +24,35 @@ import os
 import sys
 from pathlib import Path
 
-# Project root = parent of this file's directory
+# -----------------------------------------------------------------------
+# 1. Put the project root on sys.path so all internal packages resolve
+# -----------------------------------------------------------------------
 _PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-# Load .env if present (for local development)
+# -----------------------------------------------------------------------
+# 2. Load .env (local development only — never fails if file absent)
+# -----------------------------------------------------------------------
 try:
     from dotenv import load_dotenv
-    load_dotenv(_PROJECT_ROOT / ".env", override=False)
+    load_dotenv(_PROJECT_ROOT / ".env", override=True)
 except ImportError:
-    pass  # python-dotenv is optional
+    pass  # python-dotenv is optional; env vars may already be set
 
-# Delegate to the Streamlit frontend application
-# Streamlit re-imports this module on every rerun, so the import
-# must be at module level (not inside __main__).
-import frontend.app  # noqa: F401, E402 — side-effect import (runs Streamlit)
+# -----------------------------------------------------------------------
+# 3. Re-execute Streamlit targeting frontend/app.py directly.
+#    We achieve this by replacing sys.argv[0] with the real app file
+#    and then exec-ing it — so Streamlit only sees one script, not two.
+#    This avoids the double-execution bug caused by `import frontend.app`.
+# -----------------------------------------------------------------------
+_APP_FILE = str(_PROJECT_ROOT / "frontend" / "app.py")
+
+# Update argv so that any relative path resolution inside app.py still works
+sys.argv[0] = _APP_FILE
+
+# exec the real app file in the current module's global namespace.
+# Streamlit has already started and is watching THIS file (app/main.py),
+# so we hand off execution to frontend/app.py here.
+with open(_APP_FILE, "r", encoding="utf-8") as _f:
+    exec(compile(_f.read(), _APP_FILE, "exec"), {"__file__": _APP_FILE, "__name__": "__main__"})

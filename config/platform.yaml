@@ -21,11 +21,11 @@ active_domain: "${ACTIVE_DOMAIN:customer_management}"
 # Large Language Model — OpenAI GPT
 # -----------------------------------------------------------------------------
 llm:
-  provider: "openai"
+  provider: "${LLM_PROVIDER:openai}"
   model: "${LLM_MODEL:gpt-4o}"
   temperature: 0.2
   max_tokens: 4096
-  api_key_env: "OPENAI_API_KEY"
+  api_key_env: "${LLM_API_KEY_ENV:OPENAI_API_KEY}"
   timeout_seconds: 60
   max_retries: 3
 
@@ -33,9 +33,9 @@ llm:
 # Embedding Model — OpenAI Embeddings
 # -----------------------------------------------------------------------------
 embedding:
-  provider: "openai"
+  provider: "${EMBEDDING_PROVIDER:openai}"
   model: "${EMBEDDING_MODEL:text-embedding-3-small}"
-  api_key_env: "OPENAI_API_KEY"
+  api_key_env: "${EMBEDDING_API_KEY_ENV:OPENAI_API_KEY}"
   dimensions: 1536
 
 # -----------------------------------------------------------------------------

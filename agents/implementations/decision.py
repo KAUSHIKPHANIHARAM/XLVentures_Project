@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from langchain_core.messages import BaseMessage, HumanMessage
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 
 from agents.base import BaseAgent
 from schemas.agent import WorkflowState
@@ -38,12 +38,27 @@ class DecisionAgent(BaseAgent):
 
         extra = "\n\n".join(context_parts)
 
+        # If no data yet, instruct the model to call its tools FIRST
+        if not data_ctx:
+            tool_instruction = (
+                "IMPORTANT: You MUST call your tools to retrieve data FIRST — do NOT ask the user for clarification.\n"
+                "Available tools:\n"
+                "- search_customers(query='', segment='', min_churn_risk=0.0, limit=20)\n"
+                "  e.g. search_customers(segment='Premium', min_churn_risk=0.7) for high-risk premium customers\n"
+                "- get_customer_detail(customer_id='CUST-002')\n"
+                "- analyze_churn_risk(customer_id='CUST-002')\n"
+                "- generate_decision_recommendation(customer_id='CUST-002', context='')\n"
+                "- get_interaction_history(customer_id='CUST-002', limit=10)\n"
+                "NEVER say you need more information. Infer parameters from the query and call tools immediately."
+            )
+            extra = tool_instruction + ("\n\n" + extra if extra else "")
+
         return [
             self._system_message(extra),
             HumanMessage(
                 content=(
-                    f"Based on all the above context and data, provide your "
-                    f"decision recommendation for:\n{user_query}"
+                    f"Use your tools to retrieve all relevant customer data, then "
+                    f"provide a full decision recommendation for:\n{user_query}"
                 )
             ),
         ]

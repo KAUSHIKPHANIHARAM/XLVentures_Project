@@ -41,15 +41,33 @@ entities:
         required: true
         indexed: true
         searchable: false
+      customer_id:
+        type: "string"
+        description: "Business customer identifier, e.g. CUST-001."
+        required: true
+        indexed: true
+        searchable: true
+      company_name:
+        type: "string"
+        description: "Legal company name for the customer account."
+        required: true
+        indexed: true
+        searchable: true
+      registered_email:
+        type: "string"
+        description: "Official registered email address for the customer account."
+        required: true
+        indexed: true
+        searchable: true
       full_name:
         type: "string"
-        description: "Customer's full name."
+        description: "Primary contact or account owner name."
         required: true
         indexed: false
         searchable: true
       email:
         type: "string"
-        description: "Customer email address."
+        description: "Primary contact email address."
         required: true
         indexed: true
         searchable: true
@@ -58,6 +76,12 @@ entities:
         description: "Contact phone number."
         required: false
         indexed: false
+        searchable: false
+      contract_end_date:
+        type: "string"
+        description: "Contract end date used for renewal planning (ISO-8601)."
+        required: false
+        indexed: true
         searchable: false
       segment:
         type: "string"
@@ -154,23 +178,30 @@ tools:
   - name: "search_customers"
     description: >
       Search the customer database by name, email, segment, or free-text notes.
-      Returns a list of matching customer records with key attributes.
+      Supports filtering by segment (Premium/Standard/Trial) and minimum churn risk score.
+      Use min_churn_risk=0.7 to find HIGH risk customers, 0.4 for MEDIUM+.
+      Returns a sorted list of matching customer records with churn risk and risk level.
+      Example: search_customers(segment="Premium", min_churn_risk=0.7) for high-risk premium customers.
     module: "connectors.sqlite.tools.SearchCustomersTool"
     enabled: true
     tags: ["data", "search", "customer"]
     parameters:
       query:
         type: "string"
-        description: "Search query string (name, email, or keyword)."
-        required: true
+        description: "Search query string (name, email, or keyword). Use empty string to match all customers."
+        required: false
       segment:
         type: "string"
-        description: "Filter by segment: Premium, Standard, Trial."
+        description: "Filter by exact segment: Premium, Standard, or Trial. Use empty string for all segments."
         required: false
-        enum: ["Premium", "Standard", "Trial"]
+        enum: ["Premium", "Standard", "Trial", ""]
+      min_churn_risk:
+        type: "number"
+        description: "Minimum churn risk score (0.0 to 1.0). HIGH risk = 0.7, MEDIUM risk = 0.4, any risk = 0.0."
+        required: false
       limit:
         type: "integer"
-        description: "Maximum number of results to return."
+        description: "Maximum number of results to return (default 20)."
         required: false
 
   - name: "get_customer_detail"
@@ -182,8 +213,8 @@ tools:
     tags: ["data", "detail", "customer"]
     parameters:
       customer_id:
-        type: "integer"
-        description: "The unique ID of the customer."
+        type: "string"
+        description: "The unique customer identifier or numeric record ID. Supports CUST-001, email, or numeric PK."
         required: true
 
   - name: "get_interaction_history"
@@ -195,8 +226,8 @@ tools:
     tags: ["data", "history", "interactions"]
     parameters:
       customer_id:
-        type: "integer"
-        description: "The unique ID of the customer."
+        type: "string"
+        description: "The unique customer identifier or numeric record ID. Supports CUST-001, email, or numeric PK."
         required: true
       limit:
         type: "integer"
@@ -212,8 +243,8 @@ tools:
     tags: ["analysis", "churn", "risk"]
     parameters:
       customer_id:
-        type: "integer"
-        description: "The unique ID of the customer."
+        type: "string"
+        description: "The unique customer identifier or numeric record ID. Supports CUST-001, email, or numeric PK."
         required: true
 
   - name: "semantic_search_knowledge"
@@ -242,8 +273,8 @@ tools:
     tags: ["decision", "recommendation", "explainability"]
     parameters:
       customer_id:
-        type: "integer"
-        description: "The customer being evaluated."
+        type: "string"
+        description: "The customer identifier or numeric record ID. Supports CUST-001, email, or numeric PK."
         required: true
       context:
         type: "string"
@@ -318,6 +349,7 @@ agents:
     enabled: true
     max_iterations: 5
     tools:
+      - "search_customers"
       - "get_customer_detail"
       - "get_interaction_history"
       - "analyze_churn_risk"
@@ -343,6 +375,7 @@ agents:
     enabled: true
     max_iterations: 5
     tools:
+      - "search_customers"
       - "get_customer_detail"
       - "analyze_churn_risk"
       - "semantic_search_knowledge"
@@ -467,32 +500,42 @@ knowledge_sources:
       Customers with a churn risk score above 0.7 are classified as High Risk.
       High Risk customers must be contacted within 48 hours by their account manager.
       Offer retention incentives: 10% discount for Standard, 15% for Premium accounts.
-      Escalate to Customer Success Manager if no response within 72 hours.
+      If High Risk status persists after outreach, escalate to Customer Success Director.
+      Renewal conversations should be accelerated for any customer with contract end date within 90 days.
+
+      RENEWAL POLICY
+      Begin renewal planning 60 days before contract end date.
+      Prepare an ROI report and renewal proposal for all Premium customers.
+      Multi-year renewal discount rates: 5% for 2-year, 10% for 3-year agreements.
+      If renewal risk is detected, add executive sponsorship and formal risk mitigation.
 
       CUSTOMER SEGMENTATION POLICY
-      Premium: Lifetime value > $10,000 or contract > 24 months.
-      Standard: Lifetime value $1,000–$10,000 or contract 6–24 months.
+      Premium: Lifetime value > $10,000 or contract length > 24 months.
+      Standard: Lifetime value $1,000–$10,000 or contract length 6–24 months.
       Trial: New customers within 90 days or lifetime value < $1,000.
+
+      BILLING AND PAYMENT POLICY
+      All billing disputes must be acknowledged within 24 hours.
+      Verify disputed invoice line items within 3 business days.
+      Do not offer discount incentives before validating the dispute.
+      Escalate unresolved billing disputes to finance and customer success within 7 days.
 
       INTERACTION BEST PRACTICES
       Log all customer interactions within 24 hours of occurrence.
       Every negative sentiment interaction requires a follow-up within 24 hours.
-      Monthly health check calls are mandatory for Premium customers.
-      Quarterly business reviews are recommended for Standard customers.
+      Monthly health review calls are mandatory for Premium customers.
+      Trial accounts must have onboarding outreach within 5 business days.
 
       ESCALATION POLICY
       Escalate to Tier 2 support if an issue is unresolved after 3 interactions.
       Critical account issues (affecting revenue > $5,000) require VP notification.
       Legal escalations must be flagged to the compliance team immediately.
+      Executive escalation is required for any SLA breach with a financial impact.
 
       DATA QUALITY STANDARDS
-      All customer records must have a valid email address.
+      All customer records must have a valid registered_email.
       Phone numbers should be in E.164 format.
-      Segment must be reviewed and updated quarterly.
-      Churn risk scores are recalculated nightly by the ML pipeline.
-
-  - name: "customer_success_playbook"
-    type: "inline"
+      Segment and contract_end_date must be reviewed quarterly.
     chunk_size: 400
     chunk_overlap: 50
     tags: ["playbook", "success"]

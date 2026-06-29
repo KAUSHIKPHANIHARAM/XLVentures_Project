@@ -272,12 +272,16 @@ class BaseAgent(ABC):
 
     def _knowledge_context_block(self, state: WorkflowState) -> str:
         """Format knowledge chunks from state into an injectable block."""
-        chunks: list[str] = state.get("knowledge_chunks", [])
+        chunks: list[Any] = state.get("knowledge_chunks", [])
         if not chunks:
             return ""
         lines = ["--- Relevant Knowledge ---"]
         for i, chunk in enumerate(chunks[:3], 1):
-            lines.append(f"[{i}] {chunk[:400]}")
+            if isinstance(chunk, dict):
+                content = chunk.get("content", "")
+            else:
+                content = str(chunk)
+            lines.append(f"[{i}] {content[:400]}")
         lines.append("--- End Knowledge ---")
         return "\n".join(lines)
 

@@ -30,10 +30,24 @@ class AnalysisAgent(BaseAgent):
 
         extra = "\n\n".join(context_parts)
 
+        # When no data is pre-loaded in state, tell the model to use tools
+        if not data_ctx:
+            tool_instruction = (
+                "IMPORTANT: You MUST call your tools immediately — do NOT ask the user for clarification.\n"
+                "Available tools:\n"
+                "- search_customers(query='', segment='', min_churn_risk=0.0, limit=20)\n"
+                "  e.g. search_customers(segment='Premium', min_churn_risk=0.7) for Premium high-risk customers\n"
+                "- analyze_churn_risk(customer_id='CUST-002')\n"
+                "- get_customer_detail(customer_id='CUST-002')\n"
+                "- get_interaction_history(customer_id='CUST-002', limit=10)\n"
+                "NEVER ask for clarification. Infer the right tool call from the user query."
+            )
+            extra = tool_instruction + ("\n\n" + extra if extra else "")
+
         return [
             self._system_message(extra),
             HumanMessage(
-                content=f"Analyse the following request using the data above:\n{user_query}"
+                content=f"Use your tools to retrieve data, then analyse:\n{user_query}"
             ),
         ]
 

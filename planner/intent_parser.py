@@ -118,9 +118,13 @@ class IntentParser:
         """Extract named entities (IDs, segments, risk levels) from the query."""
         entities: dict[str, Any] = {}
 
-        id_match = re.search(r"\b(?:customer\s+|id\s+|#)(\d+)\b", query, re.IGNORECASE)
+        id_match = re.search(r"\b(?:customer\s+|id\s+|#)?(CUST[- ]?\d{1,5}|\d{1,5})\b", query, re.IGNORECASE)
         if id_match:
-            entities["customer_id"] = int(id_match.group(1))
+            id_text = id_match.group(1)
+            if id_text.upper().startswith("CUST"):
+                entities["customer_id"] = id_text.upper().replace(" ", "-")
+            else:
+                entities["customer_id"] = int(id_text)
         elif not entities:
             nums = re.findall(r"\b(\d{1,5})\b", query)
             if nums and len(nums) == 1:

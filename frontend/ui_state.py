@@ -29,6 +29,9 @@ _DEFAULTS: dict[str, Any] = {
     "stream_log":       [],          # list of agent step strings for live log
     "error_message":    "",          # last error to display
     "selected_query":   "",          # query chosen from history
+    "chat_open":        False,       # True when chatbot panel is displayed
+    "chat_history":     [],          # list of chatbot messages
+    "chat_input":       "",         # current chat input text
 }
 
 
@@ -106,3 +109,29 @@ def set_error(message: str) -> None:
 
 def clear_error() -> None:
     st.session_state[_key("error_message")] = ""
+
+
+def is_chat_open() -> bool:
+    return st.session_state.get(_key("chat_open"), False)
+
+
+def set_chat_open(value: bool) -> None:
+    st.session_state[_key("chat_open")] = value
+
+
+def get_chat_history() -> list[dict[str, Any]]:
+    return st.session_state.get(_key("chat_history"), [])
+
+
+def add_chat_message(role: str, message: str) -> None:
+    history = get_chat_history()
+    history.append({"role": role, "message": message})
+    st.session_state[_key("chat_history")] = history[-20:]
+
+
+def get_chat_input() -> str:
+    return st.session_state.get(_key("chat_input"), "")
+
+
+def set_chat_input(value: str) -> None:
+    st.session_state[_key("chat_input")] = value

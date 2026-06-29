@@ -18,10 +18,12 @@ from typing import Any
 
 from schemas.agent import AgentOutput, AgentStatus, WorkflowState
 from schemas.decision import (
+    ConfidenceLevel,
     DecisionResult,
     Evidence,
     Recommendation,
     RiskFlag,
+    RiskLevel,
 )
 from utils.datetime_utils import utc_now_iso
 from utils.logging import get_logger
@@ -87,11 +89,15 @@ class DecisionEngine:
         )
 
         # overall_risk = highest severity across all recommendation risk_flags
-        overall_risk = "none"
+        overall_risk = RiskLevel.NONE
         for rec in recommendations:
             for flag in (rec.risk_flags or []):
-                level = flag.level if isinstance(flag.level, str) else flag.level.value
-                if _SEVERITY_ORDER.get(level, 0) > _SEVERITY_ORDER.get(overall_risk, 0):
+                level = (
+                    flag.level
+                    if isinstance(flag.level, RiskLevel)
+                    else RiskLevel(flag.level)
+                )
+                if _SEVERITY_ORDER.get(level.value, 0) > _SEVERITY_ORDER.get(overall_risk.value, 0):
                     overall_risk = level
 
         summary = self._build_summary(
@@ -110,7 +116,7 @@ class DecisionEngine:
             recommendations=recommendations,
             alternative_options=[],
             requires_human_review=any(
-                (f.level if isinstance(f.level, str) else f.level.value) == "critical"
+                (f.level if isinstance(f.level, RiskLevel) else RiskLevel(f.level)) == RiskLevel.CRITICAL
                 for rec in recommendations for f in (rec.risk_flags or [])
             ),
             reasoning_chain=self._build_reasoning_chain(agent_outputs),
@@ -125,6 +131,7 @@ class DecisionEngine:
                 "query": user_query,
                 "session_id": state.get("session_id", ""),
                 "final_response": final_response,
+                "knowledge_chunks": state.get("knowledge_chunks", []),
             },
         )
 
@@ -160,8 +167,8 @@ class DecisionEngine:
                 confidence_level=self._score_to_level(decision_out.confidence or 0.8),
                 confidence_score=decision_out.confidence or 0.8,
                 priority=1,
-                evidence=evidence[:3],        # attach evidence to primary rec
-                risk_flags=risk_flags[:3],    # attach risk flags to primary rec
+                evidence=evidence[:3],
+                risk_flags=risk_flags[:3],
                 estimated_impact="Potential to prevent customer churn and protect revenue.",
                 time_sensitivity="immediate",
                 metadata={"source_agent": "decision_agent"},
@@ -175,20 +182,32 @@ class DecisionEngine:
                     score = float(result.get("confidence", 0.75))
                     risk = result.get("risk_level", "MEDIUM")
                     priority_int = 1 if risk == "HIGH" else 2 if risk == "MEDIUM" else 3
+                    alternative_options = result.get("alternative_options") or []
+                    rationale = result.get("rationale", "")[:400]
+                    if not rationale:
+                        rationale = (
+                            f"Decision recommendation generated from churn risk {score:.2f} "
+                            "and customer profile insights."
+                        )
                     recs.append(Recommendation(
                         recommendation_id=str(uuid.uuid4()),
                         action=result["recommended_action"],
-                        rationale=result.get("rationale", "")[:400],
+                        rationale=rationale,
                         confidence_level=self._score_to_level(score),
                         confidence_score=score,
                         priority=priority_int,
-                        evidence=[],
-                        risk_flags=[],
-                        estimated_impact="",
+                        evidence=evidence[:2],
+                        risk_flags=risk_flags[:2],
+                        estimated_impact=(
+                            "High confidence recommendation informed by churn score and "
+                            "customer interaction history."
+                        ),
                         time_sensitivity="immediate" if risk == "HIGH" else "standard",
-                        metadata={"source": "tool:generate_decision_recommendation"},
+                        metadata={
+                            "source": "tool:generate_decision_recommendation",
+                            "alternative_options": alternative_options,
+                        },
                     ))
-
         # Fallback: synthesizer/final response
         if not recs and final_response:
             recs.append(Recommendation(
