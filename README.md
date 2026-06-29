@@ -10,7 +10,7 @@
 
 Repository:
 
-https://github.com/Chintu-0511/SentinalAI
+[https://github.com/Chintu-0511/SentinalAI](https://github.com/KAUSHIKPHANIHARAM/XLVentures_Project)
 
 ---
 
